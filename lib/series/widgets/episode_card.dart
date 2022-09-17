@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/series/series.dart';
 import 'package:series_repository/series_repository.dart';
 
-class SeriesCard extends StatelessWidget {
-  const SeriesCard({Key? key, required this.series}) : super(key: key);
+class EpisodeCard extends StatelessWidget {
+  const EpisodeCard({Key? key, required this.episode}) : super(key: key);
 
-  final Series series;
+  final Episode episode;
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +13,14 @@ class SeriesCard extends StatelessWidget {
       child: ListTile(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => SeriesDetailsPage(series: series),
+            builder: (context) => EpisodeDetailsPage(
+              episode: episode,
+            ),
           ));
         },
-        title: Text(series.name),
-        subtitle: Text(series.genres.join(', ')),
-        leading: series.image?.medium != null
-            ? Image.network(series.image?.medium ?? '')
+        title: Text(episode.name),
+        leading: episode.image?.medium != null
+            ? Image.network(episode.image?.medium ?? '')
             : const SizedBox(),
       ),
     );

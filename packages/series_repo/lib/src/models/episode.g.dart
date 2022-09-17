@@ -14,7 +14,7 @@ _$_Episode _$$_EpisodeFromJson(Map<String, dynamic> json) => _$_Episode(
       name: json['name'] as String,
       season: json['season'] as int,
       number: json['number'] as int,
-      summary: json['summary'] as String,
+      summary: json['summary'] as String?,
     );
 
 Map<String, dynamic> _$$_EpisodeToJson(_$_Episode instance) =>

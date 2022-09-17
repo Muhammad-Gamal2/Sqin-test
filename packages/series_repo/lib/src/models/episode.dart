@@ -13,7 +13,7 @@ class Episode with _$Episode {
     required String name,
     required int season,
     required int number,
-    required String summary,
+    String? summary,
   }) = _Episode;
 
   factory Episode.fromJson(Map<String, Object?> json) =>

@@ -25,7 +25,7 @@ mixin _$Episode {
   String get name => throw _privateConstructorUsedError;
   int get season => throw _privateConstructorUsedError;
   int get number => throw _privateConstructorUsedError;
-  String get summary => throw _privateConstructorUsedError;
+  String? get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +42,7 @@ abstract class $EpisodeCopyWith<$Res> {
       String name,
       int season,
       int number,
-      String summary});
+      String? summary});
 
   $SeriesImageCopyWith<$Res>? get image;
 }
@@ -88,7 +88,7 @@ class _$EpisodeCopyWithImpl<$Res> implements $EpisodeCopyWith<$Res> {
       summary: summary == freezed
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 
@@ -116,7 +116,7 @@ abstract class _$$_EpisodeCopyWith<$Res> implements $EpisodeCopyWith<$Res> {
       String name,
       int season,
       int number,
-      String summary});
+      String? summary});
 
   @override
   $SeriesImageCopyWith<$Res>? get image;
@@ -164,7 +164,7 @@ class __$$_EpisodeCopyWithImpl<$Res> extends _$EpisodeCopyWithImpl<$Res>
       summary: summary == freezed
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -178,7 +178,7 @@ class _$_Episode implements _Episode {
       required this.name,
       required this.season,
       required this.number,
-      required this.summary});
+      this.summary});
 
   factory _$_Episode.fromJson(Map<String, dynamic> json) =>
       _$$_EpisodeFromJson(json);
@@ -194,7 +194,7 @@ class _$_Episode implements _Episode {
   @override
   final int number;
   @override
-  final String summary;
+  final String? summary;
 
   @override
   String toString() {
@@ -245,7 +245,7 @@ abstract class _Episode implements Episode {
       required final String name,
       required final int season,
       required final int number,
-      required final String summary}) = _$_Episode;
+      final String? summary}) = _$_Episode;
 
   factory _Episode.fromJson(Map<String, dynamic> json) = _$_Episode.fromJson;
 
@@ -260,7 +260,7 @@ abstract class _Episode implements Episode {
   @override
   int get number;
   @override
-  String get summary;
+  String? get summary;
   @override
   @JsonKey(ignore: true)
   _$$_EpisodeCopyWith<_$_Episode> get copyWith =>

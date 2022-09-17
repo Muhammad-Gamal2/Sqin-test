@@ -17,8 +17,16 @@ class EpisodesCubit extends Cubit<EpisodesState> {
       emit(EpisodesLoadInProgress());
       final episodes =
           await _seriesRepository.getSeriesEpisodes(seriesId: seriesId);
-      final episodesMap = <int, List<Episode>>{}
-        ..addEntries(episodes.map((e) => MapEntry(e.season, [e])));
+      final episodesMap = <int, List<Episode>>{}..addEntries(
+          episodes.map(
+            (episode) => MapEntry(
+              episode.season,
+              episodes
+                  .where((element) => element.season == episode.season)
+                  .toList(),
+            ),
+          ),
+        );
       emit(EpisodesLoadSuccess(episodes: episodes, episodesMap: episodesMap));
     } on CustomException catch (e) {
       emit(EpisodesLoadFailure(exception: e));
