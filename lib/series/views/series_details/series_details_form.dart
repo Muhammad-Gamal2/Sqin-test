@@ -45,7 +45,14 @@ class SeriesDetailsForm extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(series.genres.join(', ')),
                     ),
-                    Html(data: series.summary),
+                    if ((series.schedule?.time ?? '').isNotEmpty ||
+                        (series.schedule?.days ?? []).isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                            "Air at ${series.schedule?.time ?? ''} : ${series.schedule?.days.join(', ')}"),
+                      ),
+                    Html(data: series.summary ?? ''),
                     const Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(

@@ -30,7 +30,7 @@ class EpisodeDetailsForm extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text("Episode ${episode.number}"),
             ),
-            Html(data: episode.summary),
+            Html(data: episode.summary ?? ''),
           ],
         ),
       ),
